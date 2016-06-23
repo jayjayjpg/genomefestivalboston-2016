@@ -2,6 +2,10 @@ var Reveal = require('reveal');
 var highlight = require('highlight.js'); // Highlight code
 var chartFactory = require('./js/chartFactory.js');
 
+
+//Init pretty HTML Code Example Markup
+// require('./js/markup.js');
+
 // Full list of configuration options available here: 
 // https://github.com/hakimel/reveal.js#configuration 
 Reveal.initialize({
@@ -22,6 +26,8 @@ highlight.initHighlighting();
 
 //Init Graph
 require('./js/graph.js');
+
+
 
 //Css checkbox example
 var ch = document.getElementsByClassName("cssCheck");

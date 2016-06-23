@@ -137,15 +137,6 @@ running: http://localhost:9090
 <img src="../img/biojs_slush_result.png" />
 					</section>
 					<section>
-						<h3>Playing with the example</h3>
-						<br/>
-						<p class='left_create' >Keep <code class="inline">npm run w</code> running. <br/><br/>Open the example file <code class="inline">biojs-vis-example/examples/simple.js</code> in your favourite editor:</p>
-<pre><code class="javascript">// if you don't specify a html file, the sniper will generate a div with id "rootDiv"
-var app = require("biojs-vis-example");
-var instance = new app({el: rootDiv, text: 'biojs'});</code></pre>
-						<p class="left_create">Then try changing the <code class="inline">text</code> option and refreshing your browser.</p>
-					</section>
-					<section>
 						<p class="left_create">The <code class="inline">npm run w</code> action, detects changes in your files, re-bundles the <code class="inline">biojs-vis-example/build/example.js</code> file, and exposes the result on <a href="http://localhost:9090/examples/simple">http://localhost:9090/examples/simple</a></p>
 						<br/>
 						<div class="fragment fade-in">
@@ -186,6 +177,20 @@ sniper": {
 					<section>
 						<h2>Modules and Dependencies</h2>
 					</section>
+                                        <section>
+                                                <h3>Playing with the example</h3>
+                                                <br/>
+                                                <p class='left_create' >Keep <code class="inline">npm run w</code> running. <br/><br/>Open the example file <code class="inline">biojs-vis-example/examples/simple.js</code> in your favourite editor:</p>
+<pre><code class="javascript">// if you don't specify a html file, the sniper will generate a div with id "rootDiv"
+var app = require("biojs-vis-example");
+var instance = new app({el: rootDiv, text: 'biojs'});</code></pre>
+                                                <p class="left_create">Let's have a look at the <code class="inline">biojsvisexample()</code> method</p>
+<pre><code class="javascript">
+var Barchart = require("./barchart.js");
+module.exports = biojsvisexample = function(opts){
+  var bc = new Barchart(opts);
+};</code></pre>
+                                        </section>
 					<section>
 						<h3>Modules in Node.js</h3>
 						<p><a href="https://nodejs.org/api/modules.html">https://nodejs.org/api/modules.html</a></p>
@@ -204,25 +209,15 @@ console.log(example); // - from another module</code></pre>
 					</section>
 					<section>
 						<h3>Next Task</h3>
-						<p class='left_create' >Remove the functionality of displaying <code class="inline">"Hello BioJS"</code> and make it show <code class="inline">"BARCHART"</code>, but the code should be in a separate module.</p>
 							<img src="../img/biojs_barchart_text.png" />
 						<div class="fragment fade-in">
 							<p class='left_create' ><code class="inline">biojs-vis-example/lib/barchart.js</code>:</p>
 							<pre><code class="javascript">var Barchart = function(opts) {
 	var container = opts.el;
-	container.textContent = "BARCHART";
+	// container.textContent = "BARCHART";
 	container.setAttribute("class", "header");
 }
 module.exports = Barchart;
-</code></pre>
-						</div>
-						<div class="fragment fade-in">
-							<p class='left_create' ><code class="inline">biojs-vis-example/lib/index.js</code>:</p>
-							<pre><code class="javascript">var  biojsvisexample;
-var Barchart = require("./barchart.js");
-module.exports = biojsvisexample = function(opts){
-	var bc = new Barchart(opts);
-};
 </code></pre>
 						</div>
 					</section>
@@ -298,7 +293,7 @@ var Barchart = function(opts) {
       .text(function(d){ return d +": "+bases[d]; });
 }
 </code></pre>
-						<p>Interested in d3?? Read about <a href="https://bost.ocks.org/mike/join/">Thinking with Joins</a></p>
+						<p>Interested in d3? Read about <a href="https://bost.ocks.org/mike/join/">Thinking with Joins</a></p>
 					</section>
 
 				</section>

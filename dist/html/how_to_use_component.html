@@ -50,46 +50,31 @@
                     
                     We need a page ready to display protein features
                     <ul>
-                        <li>Open any simple text editor</li>
-                        <li>Name the file myPage.html</li>
+                        <li>Open your favorite text editor / IDE</li>
+                        <li>Open the file 1-proteinviewer/index.html</li>
+                        
                     </ul>
                     
-                    <pre><code>&lt;html&gt;
-&lt;head&gt;
-    &lt;meta charset='utf-8'&gt;    
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;!-- We will use this div to host the feature viewer. --&gt;
-    &lt;!-- Identify it as target_ft and give it a width of 1200px --&gt;
-    &lt;div id="" width=""/&gt;
-&lt;/body&gt;
-&lt;/html&gt;</code></pre>
-                </section>
-                <section>
-                    <h3>Step 2: Empty page</h3>
-                    
-                    In order to get the protein data, we need to enable users to let us know which protein accession they want to use
-                    <ul>
-                        <li>First we will create an element for users to write down a protein accession</li>
-                    </ul>
-                    
-                    <pre><code>&lt;html&gt;
-&lt;head&gt;
-    &lt;meta charset='utf-8'&gt;    
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;!-- We will use this div to create an input element identified 
-    as accession. --&gt;
-    &lt;!-- Additionally, we will create a button. The button will 
-    trigger the function getData when clicked. --&gt;
-    &lt;div&gt;
-        &lt;input id=""&gt;
-        &lt;button onClick=""&gt;Get Data/&lt;button&gt;
-    &lt;/div&gt;
-    
-    &lt;div id="target_ft" width="1200px"/&gt;
-&lt;/body&gt;
-&lt;/html&gt;</code></pre>
+                   <pre><code>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+        &lt;head&gt;
+                &lt;title&gt;Protein Viewer Demo | BioJS Workshop @ Genome Festival Boston&lt;/title&gt;
+                &lt;meta charset=&quot;utf-8&quot;&gt;
+        &lt;/head&gt;
+        &lt;body&gt;
+                &lt;div&gt;
+                  &lt;input id=&quot;&quot;&gt;
+                  &lt;button onClick=&quot;&quot;&gt;Get Data/&lt;/button&gt;
+                &lt;/div&gt;
+                &lt;div id=&quot;&quot; width=&quot;1200px&quot;/&gt;
+        &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+In order to get the protein data, we need to enable users to let us know which protein accession they want to use
+<ul>
+    <li>First we will create an element for users to write down a protein accession</li>
+</ul>
                 </section>
         
                 <section>
@@ -105,7 +90,7 @@
     &lt;script&gt;
         var getData = function(){
             /* Get the value inside the input identfied as 'accession' 
-               Tip: use the attribute 'html'*/
+               Tip: use the attribute 'value'*/
             var accession = '';
             
             /* Get the element identified as 'target_ft' */
@@ -136,7 +121,7 @@
     &lt;script&gt;
         var getData = function(){
             
-            var accession = document.getElementById('accession').html;
+            var accession = document.getElementById('accession').value;
             var element = document.getElementById('target_ft');
             
             alert(accession);
@@ -173,7 +158,7 @@
     
     &lt;script&gt;
         var getData = function(){
-            var accession = document.getElementById('accession').html;
+            var accession = document.getElementById('accession').value;
             var element = document.getElementById('target_ft');
         }
     &lt;/script&gt;
@@ -203,7 +188,7 @@
     
     &lt;script&gt;
         var getData = function(){
-            var accession = document.getElementById('accession').html;
+            var accession = document.getElementById('accession').value;
             var element = document.getElementById('target_ft');
             
             var app = require('biojs-vis-proteinfeaturesviewer');
